@@ -1,0 +1,194 @@
+/* ===================== منارة الإسلام - الملف الرئيسي للتصميم ===================== */
+
+/* الخط الأساسي */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Cairo', sans-serif;
+  background: #f5f7f8;
+  color: #1a1a1a;
+}
+
+/* شريط التنقل */
+.navbar {
+  background: #0f5f4a;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.navbar a:hover,
+.navbar .active {
+  color: #d4a65a;
+}
+
+/* الهيرو */
+.hero {
+  background: linear-gradient(to bottom, #0f5f4a, #167a5d);
+  padding: 80px 20px;
+  text-align: center;
+  color: white;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+/* أقسام المحتوى */
+h1, h2, h3 {
+  text-align: center;
+  color: #0f5f4a;
+}
+
+.today-box, .prayer-section {
+  width: 90%;
+  margin: auto;
+  padding: 20px;
+}
+
+.ayah, .hadith, .live-box, .reader-item, .surah-item {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  margin: 10px 0;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  line-height: 1.8;
+}
+
+/* شبكة مواقيت الصلاة */
+.prayer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.prayer-item {
+  background: #e8f3ef;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 18px;
+}
+
+/* صفحة القرآن */
+.search-box input {
+  width: 90%;
+  margin: 20px auto;
+  display: block;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 18px;
+}
+
+.surah-list .surah-item {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.surah-list .surah-item:hover {
+  background: #dff3ea;
+}
+
+/* صفحة التلاوات */
+.readers-list .reader-item {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.readers-list .reader-item:hover {
+  background: #d7eade;
+}
+
+.audio-player-box {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.audio-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.audio-controls button {
+  padding: 10px 20px;
+  background: #0f5f4a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.audio-controls button:hover {
+  background: #145f48;
+}
+
+/* صفحة البث المباشر */
+.live-box h2 {
+  margin-bottom: 10px;
+  color: #0f5f4a;
+}
+
+/* صفحة الأذكار */
+.dashboard {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.dashboard button {
+  padding: 10px 20px;
+  background: #0f5f4a;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dashboard button:hover {
+  background: #145f48;
+}
+
+/* الوضع الليلي */
+.dark-mode {
+  background: #121212;
+  color: #e5e5e5;
+}
+
+.dark-mode .navbar { background: #000; }
+.dark-mode .ayah,
+.dark-mode .hadith,
+.dark-mode .live-box,
+.dark-mode .reader-item,
+.dark-mode .surah-item {
+  background: #1e1e1e;
+  color: #e5e5e5;
+  box-shadow: none;
+}
+
+.dark-mode input {
+  background: #222;
+  color: white;
+  border: 1px solid #444;
+}

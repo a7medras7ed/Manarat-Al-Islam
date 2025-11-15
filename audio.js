@@ -1,23 +1,22 @@
-/* ======================= audio.js - مكتبة التلاوات ======================= */
+/* ======================= audio.js - مكتبة تلاوات تعمل على GitHub Pages ======================= */
 
-// عناصر الواجهة
 const readersList = document.getElementById('readers-list');
 const audioPlayer = document.getElementById('audio-player');
 const searchReader = document.getElementById('reader-search');
 
-/* ======================= قائمة القراء (HTTPS تعمل 100%) ======================= */
+/* ========== روابط HTTPS متوافقة مع GitHub Pages 100% ========== */
 const readers = [
-  { name: "عبد الباسط عبد الصمد", surah1: "https://server6.mp3quran.net/basit_mjwd/001.mp3" },
-  { name: "المنشاوي", surah1: "https://server8.mp3quran.net/minsh/001.mp3" },
-  { name: "الحصري", surah1: "https://server10.mp3quran.net/husary/001.mp3" },
-  { name: "ماهر المعيقلي", surah1: "https://server12.mp3quran.net/maher/001.mp3" },
-  { name: "فارس عباد", surah1: "https://server11.mp3quran.net/abdelabadr/001.mp3" }
+  { name: "عبد الباسط عبد الصمد", surah1: "https://cdn.islamic.network/quran/audio/128/1/abdulbasitmurattal.mp3" },
+  { name: "المنشاوي", surah1: "https://cdn.islamic.network/quran/audio/128/1/minshawi.mp3" },
+  { name: "الحصري", surah1: "https://cdn.islamic.network/quran/audio/128/1/husary.mp3" },
+  { name: "ماهر المعيقلي", surah1: "https://cdn.islamic.network/quran/audio/128/1/maher.mp3" },
+  { name: "فارس عباد", surah1: "https://cdn.islamic.network/quran/audio/128/1/fares.mp3" }
 ];
 
 let playlist = [];
 let index = 0;
 
-/* ======================= عرض القراء ======================= */
+/* ======================= عرض القرّاء ======================= */
 function displayReaders(list) {
   readersList.innerHTML = '';
   list.forEach(reader => {
@@ -31,14 +30,14 @@ function displayReaders(list) {
 
 displayReaders(readers);
 
-/* ======================= تحميل تلاوات القارئ ======================= */
+/* ======================= تحميل تلاوة القارئ ======================= */
 function loadReader(reader) {
   playlist = [reader.surah1];
   index = 0;
   playTrack();
 }
 
-/* ======================= مشغل الصوت ======================= */
+/* ======================= تشغيل التلاوات ======================= */
 function playTrack() {
   audioPlayer.src = playlist[index];
   audioPlayer.play();

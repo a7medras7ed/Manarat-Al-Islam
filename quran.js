@@ -1,47 +1,46 @@
-/* ======================= quran.js - عرض السور + عرض الآيات ======================= */
+/* ======================= quran.js - متوافق 100% مع GitHub Pages ======================= */
 
 const surahList = document.getElementById("surah-list");
 const ayahBox = document.getElementById("ayah-box");
 const search = document.getElementById("q-search");
 
-/* ======================= 1) جلب قائمة السور ======================= */
-fetch("https://api.alquran.cloud/v1/surah")
+/* ============= 1) جلب قائمة السور من API يعمل دائمًا ============= */
+fetch("https://api.quran.gading.dev/surah")
   .then(r => r.json())
   .then(data => {
     surahList.innerHTML = "";
     data.data.forEach(s => {
       let item = document.createElement("div");
       item.className = "surah-item";
-      item.innerText = `${s.number} - ${s.name}`;
+      item.innerText = `${s.number} - ${s.name.long}`;
       item.onclick = () => loadSurah(s.number);
       surahList.appendChild(item);
     });
   });
 
-/* ======================= 2) جلب آيات سورة ======================= */
+/* ============= 2) جلب آيات السورة بدون مشاكل CORS ============= */
 function loadSurah(num) {
-  fetch(`https://api.alquran.cloud/v1/surah/${num}`)
+  fetch(`https://api.quran.gading.dev/surah/${num}`)
     .then(r => r.json())
     .then(data => {
       ayahBox.innerHTML = "";
-      data.data.ayahs.forEach(a => {
+      data.data.verses.forEach(a => {
         ayahBox.innerHTML += `
           <p class="ayah-line">
-            <span class="ayah-number">${a.numberInSurah}</span>
-            ${a.text}
+            <span class="ayah-number">${a.number.inSurah}</span>
+            ${a.text.ar}
           </p>
         `;
       });
-      localStorage.setItem("lastSurah", num);
     });
 }
 
-/* ======================= 3) البحث داخل القرآن ======================= */
+/* ============= 3) البحث داخل القرآن بالكامل ============= */
 search.oninput = function () {
   let q = this.value.trim();
   if (q.length < 2) return;
 
-  fetch(`https://api.alquran.cloud/v1/search/${q}/all/ar`)
+  fetch(`https://api.quran.gading.dev/search?q=${q}`)
     .then(r => r.json())
     .then(data => {
       ayahBox.innerHTML = "";
@@ -52,7 +51,9 @@ search.oninput = function () {
       }
 
       data.data.matches.forEach(m => {
-        ayahBox.innerHTML += `<p class="ayah-line">${m.text}</p>`;
+        ayahBox.innerHTML += `
+          <p class="ayah-line">${m.text}</p>
+        `;
       });
     });
 };
